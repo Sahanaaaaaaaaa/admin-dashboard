@@ -82,17 +82,23 @@ const Certificates = () => {
 
       {showNewCaInput && (
         <Box sx={{ mb: 2 }}>
-          <form onSubmit={handleNewCaFormSubmit}>
-            <TextField
-              fullWidth
-              label="New CA Common Name"
-              value={newCa}
-              onChange={(e) => setNewCa(e.target.value)}
-              sx={{ mb: 2 }}
-            />
-            <Button variant="contained" type="submit">Create</Button>
-          </form>
-        </Box>
+  <TextField
+    fullWidth
+    label="New CA Common Name"
+    value={newCa}
+    onChange={(e) => setNewCa(e.target.value)}
+    sx={{ mb: 2 }}
+  />
+  <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+    <Button variant="contained" type="submit">Create</Button>
+    <Button
+      variant="contained"
+      onClick={() => setShowNewCaInput(false)}
+    >
+      Cancel
+    </Button>
+  </Box>
+</Box>
       )}
 
       <Button variant="contained" color="primary" onClick={handleIssueCertificate}>Issue Certificate</Button>
